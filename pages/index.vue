@@ -62,7 +62,24 @@
     </div>
   </div>
   <!-- ここに水平スクロール -->
-
+  <div class="carousel">
+    <h2>様々な職種</h2>
+    <Slick ref="slick">
+      <!-- 各スライド -->
+      <div>
+        <img src="../assets/images/Frame 69 (1).png" alt="">
+      </div>
+      <div>
+        <img src="../assets/images/Frame 72.png" alt="">
+      </div>
+      <div>
+        <img src="../assets/images/Frame 69.png" alt="">
+      </div>
+      <div>
+        <img src="../assets/images/Frame 74.png" alt="">
+      </div>
+    </Slick>
+  </div>
   <!-- backend -->
   <div class="backend">
     <h2>バックエンドエンジニアとは</h2>
@@ -135,8 +152,24 @@
 </template>
 
 <script>
+import Slick from 'vue-slick'
+import '../node_modules/slick-carousel/slick/slick.css'
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: {
+    Slick,
+  },
+  data() {
+        return {
+            slickOptions: {
+                slidesToShow: 4,
+                arrow: false,
+                autoplay: true,
+                autoplaySpeed: 100
+            },
+        };
+    },
+ 
 }
 </script>
 
@@ -312,7 +345,9 @@ h2
   margin-right: 0
 
 /* 水平スクロール */
-
+.carousel
+  width: 100vw
+  margin-top: 100px
 
 /* backend */
 .backend
