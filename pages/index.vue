@@ -63,22 +63,34 @@
   </div>
   <!-- ここに水平スクロール -->
   <div class="carousel">
+
     <h2>様々な職種</h2>
-    <Slick ref="slick">
-      <!-- 各スライド -->
-      <div>
-        <img src="../assets/images/Frame 69 (1).png" alt="">
-      </div>
-      <div>
-        <img src="../assets/images/Frame 72.png" alt="">
-      </div>
-      <div>
-        <img src="../assets/images/Frame 69.png" alt="">
-      </div>
-      <div>
-        <img src="../assets/images/Frame 74.png" alt="">
-      </div>
-    </Slick>
+    <div class="carousel-box">
+      <hooper :itemsToShow="1.8" :centerMode="true" :pagination="true" :infiniteScroll="true" :autoPlay="true" :playSpeed="4000">
+        <!-- 各スライド -->
+        <slide>
+            <img src="../assets/images/frontend.png" alt="">
+            <h3>フロントエンドエンジニア</h3>
+            <p class="carousel-sentence">主にWEBページのユーザーの目に触れる部分を扱う</p>
+        </slide>
+        <slide>
+            <img src="../assets/images/backend.png" alt="">
+            <h3>バックエンドエンジニア</h3>
+            <p class="carousel-sentence">主にユーザーからは見えない裏側の処理を担当する</p>
+        </slide>
+        <slide>
+            <img src="../assets/images/designer.png" alt="">
+            <h3>デザイナー</h3>
+            <p class="carousel-sentence">主にWebサイトや広告のデザインを行う</p>
+        </slide>
+        <slide>
+            <img src="../assets/images/infra.png" alt="">
+            <h3>インフラエンジニア</h3>
+            <p class="carousel-sentence">データベースや環境構築などインフラ領域を扱う</p>
+        </slide>
+        <navigation slot="hooper-addons"></navigation>
+      </hooper>
+    </div>
   </div>
   <!-- backend -->
   <div class="backend">
@@ -152,25 +164,17 @@
 </template>
 
 <script>
-import Slick from 'vue-slick'
-import '../node_modules/slick-carousel/slick/slick.css'
+import { Hooper, Slide,Navigation } from 'hooper';
+import 'hooper/dist/hooper.css';
+
 export default {
   name: 'IndexPage',
   components: {
-    Slick,
-  },
-  data() {
-        return {
-            slickOptions: {
-                slidesToShow: 4,
-                arrow: false,
-                autoplay: true,
-                autoplaySpeed: 100
-            },
-        };
-    },
- 
-}
+    Hooper,
+    Slide,
+    Navigation
+  }
+};
 </script>
 
 <style lang="sass" scoped>
@@ -216,7 +220,7 @@ h1
 .hero 
   margin-top:14vh
   height: 100vh
-  width: 100vw
+  width: 100%
 
 .hero-image img
   display: block
@@ -346,8 +350,96 @@ h2
 
 /* 水平スクロール */
 .carousel
-  width: 100vw
+  width: 100%
   margin-top: 100px
+
+.carousel-box
+  height: 633px
+
+.hooper
+  height: 100%
+
+.hooper-slide
+  img
+    margin: 90px auto 0 auto
+    width: 960px
+    height: 543px
+    opacity: .3
+  h3  
+    margin: 20px auto 0 auto
+    width: 960px
+    text-align: left
+  .carousel-sentence
+    display: none
+    width: 960px
+    margin: 15px auto 0 auto
+
+
+
+/* 前に戻るボタン */
+::v-deep .hooper-prev
+  left: 21%
+  height: 40px
+  width: 40px
+  background: url(~assets/images/polygon_prev.png) no-repeat center center
+  background-size: 100%
+  border: none
+  transform: scale(1.3)
+  transition-property: all
+  transition-duration: 0.4s
+  transition-timing-function: cubic-bezier(0.23, 1, 0.58, 1)
+  transition-delay: 0s
+  &:hover
+    transform: scale(0.6)
+    transition-property: all
+    transition-duration: 0.4s
+    transition-timing-function: cubic-bezier(0.23, 1, 0.58, 1)
+    transition-delay: 0s
+  .icon
+    display: none
+ 
+/*     transition: all .6s cubic-bezier(.85,.01,.15,1); */
+
+/* 次へ行くボタン */
+::v-deep .hooper-next
+  right: 21%
+  height: 40px
+  width: 40px
+  background: url(~assets/images/polygon_next.png) no-repeat center center
+  background-size: 100%
+  border: none
+  transform: scale(1.3)
+  transition-property: all
+  transition-duration: 0.4s
+  transition-timing-function: cubic-bezier(0.23, 1, 0.58, 1)
+  transition-delay: 0s
+  &:hover
+    transform: scale(0.6)
+    transition-property: all
+    transition-duration: 0.4s
+    transition-timing-function: cubic-bezier(0.23, 1, 0.58, 1)
+    transition-delay: 0s
+  .icon
+    display: none
+
+/* 中央のスライド */
+.is-current
+  img
+    margin: 0 auto
+    opacity: 1.0
+  .carousel-sentence
+    display: block
+
+.works-card
+  margin: 0
+  height: auto
+  opacity: .3
+  transform: scale(.8)
+  transition: opacity .5s, transform .5s
+
+.slick-center img 
+  opacity: 1 // 中央のスライドは透過しない
+  transform: scale(1) // 中央のスライドは小さくしない
 
 /* backend */
 .backend
