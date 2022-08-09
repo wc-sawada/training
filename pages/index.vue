@@ -202,38 +202,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
-/* primary-color */
-$primary-100: '#f2pff'
-$primary-200: '#bae1fe'
-$primary-300: '#7fcbf7'
-$primary-400: '#44b4e5'
-$primary-500: '#1095c2'
-$primary-600: '#057e9b'
-$primary-700: '#016574'
-$primary-800: '#00474d'
-$primary-900: '#002626'
-
-$secondary-100: '#fff2f9'
-$secondary-200: '#ffc5e6'
-$secondary-300: '#fc96d7'
-$secondary-400: '#f667ca'
-$secondary-500: '#eb38be'
-$secondary-600: '#ba179a'
-$secondary-700: '#880977'
-$secondary-800: '#570451'
-$secondary-900: '#260226'
-
-$natural-100: '#fafbfc'
-$natural-200: '#e5e8eb'
-$natural-300: '#d0d6da'
-$natural-400: '#bcc5c9'
-$natural-500: '#a9b488'
-$natural-600: '#879193'
-$natural-700: '#656d6f'
-$natural-800: '#444a4b'
-$natural-900: '#222626'
-
+@use "@/assets/sass/common" as cmn
 html, body 
   margin: 0
   font-family: sans-serif
@@ -317,7 +286,7 @@ h1
 .harf-circle p 
   display: flex
   transform: rotate(90deg)
-  color: $primary-900
+  color: cmn.$primary-900
   font-size: 16px
   margin: 0
   align-items: end
@@ -338,7 +307,7 @@ h3
   font-size: 16px
   display: block
   text-align: center
-  color: #057e9b
+  color: cmn.$primary-200
   margin-bottom: 30px
 
 
