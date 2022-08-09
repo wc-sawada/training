@@ -258,9 +258,12 @@ h1
   padding-top:70px
   height: 21vh
   z-index: 0
-
-
-.hero-second-sentence::before 
+  p
+    display: block
+    margin: 50px auto 30px auto
+    color: #002626
+    font-weight: 600
+.hero-second-sentence:before 
   display: block
   position: absolute
   top: 0
@@ -270,14 +273,23 @@ h1
   width: 100%
   height: 21vh
   background: linear-gradient(180deg, rgba(127,203,247,0) 0%, rgba(127,203,247,0.2) 100%)
-  filter:blur(15px)
+  -webkit-filter: blur(10px)
+  -moz-filter: blur(10px)
+  -ms-filter: blur(10px)
+  filter: blur(10px)
+  top: -5px
+  left: -5px
+  right: -5px
+  bottom: -5px
+  z-index: -1
+
 
 
 .be-engineer 
   display: block
   width: 410px
   font-size: 32px
-  color: $primary-900
+  color: #002626
   letter-spacing: 0.05em
   font-weight:bold
   margin: 80px auto 0 auto
@@ -291,7 +303,7 @@ h1
   width: 214px
   height: 107px
   border: solid 1px 
-  border-color: $natural-400
+  border-color: #bcc5c9
   border-radius: 107px 107px 0 0
   border-bottom: 0
 
@@ -305,7 +317,7 @@ h1
 .harf-circle p 
   display: flex
   transform: rotate(90deg)
-  color: $natural-400
+  color: $primary-900
   font-size: 16px
   margin: 0
   align-items: end
@@ -326,7 +338,7 @@ h3
   font-size: 16px
   display: block
   text-align: center
-  color: $primary-600
+  color: #057e9b
   margin-bottom: 30px
 
 
@@ -338,6 +350,7 @@ h3
 h2 
   text-align: center
   margin-bottom: 54px
+  color: #444a4b
 
 .life-plan-flex
   margin: 0 auto
@@ -349,7 +362,7 @@ h2
   margin-right: 4vw
   width: 300px
   height: 181px
-  border: 1px solid #000000
+  border: 1px solid #d0d6da
   border-radius: 10px
   padding: 0 50px 30px 50px
 
@@ -360,12 +373,13 @@ h2
     width: 48px
     height: 48px
     border-radius: 48px
-    background-color: #00474d
+    background-color: #bae1fe
     color: primary-800
     text-align: center
   .box-header p
     margin-bottom: 10px
     text-align: center
+    color: #00474d
 .last-child
   margin-right: 0
 
@@ -498,7 +512,7 @@ h2
 .chart
   margin: 150px auto
   width: 72vw
-  height: 375px
+
 /* footer */
 footer
   width: 100%
