@@ -160,19 +160,43 @@
     
     </div>
   </div>
+  <div class="chart">
+  <h2>年収比較</h2>
+    <chart :styles='chartScale' />
+  </div>
+  <!-- footer -->
+  <footer>
+    <p>©kubota-kouki portforio</p>
+  </footer>
 </main>
 </template>
 
 <script>
 import { Hooper, Slide,Navigation } from 'hooper';
 import 'hooper/dist/hooper.css';
+import chart from '../components/Chart.vue'
 
 export default {
   name: 'IndexPage',
   components: {
     Hooper,
     Slide,
-    Navigation
+    Navigation,
+    chart
+  },
+  data() {
+    return {
+      height: 100,
+      width: 100
+    }
+  },
+  computed: {
+    chartScale() {
+      return {
+        height: `${this.height}%`,
+        width: `${this.width}%`
+      }
+    }
   }
 };
 </script>
@@ -232,7 +256,6 @@ h1
   position: relative
   margin-top: -100px
   padding-top:70px
-  /*width: 100vw
   height: 21vh
   z-index: 0
 
@@ -244,7 +267,7 @@ h1
   left: 0
   background: inherit
   content: ''
-  width: 100vw
+  width: 100%
   height: 21vh
   background: linear-gradient(180deg, rgba(127,203,247,0) 0%, rgba(127,203,247,0.2) 100%)
   filter:blur(15px)
@@ -290,8 +313,7 @@ h1
 
 /* why */
 .why 
-  width: 100vw
-  height: 265px
+  width: 100%
 .why-sentence
   width: 242px
   margin: 0 auto
@@ -310,9 +332,8 @@ h3
 
 /* life-plan */
 .life-plan
-  width: 100vw
-  margin-top: 100px
-  padding: 50px 0 30px 0
+  width: 100%
+  margin-top: 200px
 
 h2 
   text-align: center
@@ -351,7 +372,7 @@ h2
 /* 水平スクロール */
 .carousel
   width: 100%
-  margin-top: 100px
+  margin-top: 200px
 
 .carousel-box
   height: 633px
@@ -365,6 +386,7 @@ h2
     width: 960px
     height: 543px
     opacity: .3
+    border-radius: 10px
   h3  
     margin: 20px auto 0 auto
     width: 960px
@@ -374,7 +396,9 @@ h2
     width: 960px
     margin: 15px auto 0 auto
 
-
+.hooper-track
+  ::v-deep .hooper-track
+    transition: cubic-bezier(.85,.01,.15,1)
 
 /* 前に戻るボタン */
 ::v-deep .hooper-prev
@@ -398,7 +422,7 @@ h2
   .icon
     display: none
  
-/*     transition: all .6s cubic-bezier(.85,.01,.15,1); */
+
 
 /* 次へ行くボタン */
 ::v-deep .hooper-next
@@ -443,8 +467,8 @@ h2
 
 /* backend */
 .backend
-  width: 100vw
-  margin-top: 100px
+  width: 100%
+  margin-top: 200px
 
 .backend-box
   width: 72vw
@@ -470,4 +494,17 @@ h2
       height: 200px
       margin-top: -60px
 
+/* chart */
+.chart
+  margin: 150px auto
+  width: 72vw
+  height: 375px
+/* footer */
+footer
+  width: 100%
+  height: 60px
+  background-color: #444a4b
+  p
+    display: block
+    margin-left: 60px
 </style>
